@@ -28,7 +28,7 @@ func main() {
 
 	/// SERVER PART
 
-	srv_cert, err := tls.LoadX509KeyPair("srv-cert.pem", "srv-key.pem")
+	srv_cert, err := tls.LoadX509KeyPair("srv-cert-not-secret.pem", "srv-key-not-secret.pem")
 	if err != nil {
 		grpclog.Errorln("srv load cert:", err)
 		return
@@ -62,7 +62,7 @@ func main() {
 
 	/// CLIENT PART
 
-	cli_cert, err := ioutil.ReadFile("srv-cert.pem")
+	cli_cert, err := ioutil.ReadFile("srv-cert-not-secret.pem")
 	if err != nil {
 		grpclog.Errorln("cli read cert:", err)
 		return
